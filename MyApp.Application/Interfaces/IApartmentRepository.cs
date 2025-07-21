@@ -11,6 +11,7 @@ namespace MyApp.Application.Interfaces
     {
         Task<Apartment?> GetByIdAsync(Guid id); // این کد الان متد هستش که میگه با ایدی یه اپارتمان باید پیدا شه و علامت سوال هم برا اینه که بتونه این اپشن خالی باشه یعنی پیدا نشه 
         Task AddAsync(Apartment apartment); // این متدی که من نوشتم برای اینه که بتونه یه اپارتمان جدید اضافه کنه 
+        Task<List<Apartment>> GetAllAsync();
     }
 }
 

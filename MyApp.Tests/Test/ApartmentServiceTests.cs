@@ -1,10 +1,11 @@
 ﻿using Xunit;
 using Moq;
-using MyApp.Application.Services;
 using MyApp.Application.Interfaces;
 using MyApp.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MyApp.Infrastructure.Services;
+
 
 namespace MyApp.Tests
 {

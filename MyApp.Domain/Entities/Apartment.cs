@@ -8,13 +8,14 @@ namespace MyApp.Domain.Entities
 {
     public class Apartment
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Subject { get; set; } 
         public string Address { get; set; }
         public decimal Price { get; set; }
         public string Name { get; set; }
         public Decimal PricePerNight { get; set; }
         public ICollection<Reservation> Reservations { get; set; } // ارتباط با رزروها
+        public string Title { get; set; }
     } 
 }
 // هر اپارتمان میتونه چندتا زرزو داشته باشه ای کالکشن رزرو برای رابطه یک به چند استفاده میشه    
