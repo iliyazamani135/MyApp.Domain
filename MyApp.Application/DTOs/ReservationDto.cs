@@ -5,8 +5,9 @@ namespace MyApp.Domain.Entities
     {
         public Guid Id { get; set; }
         public string CustomerName { get; set; }
-        public string ApartmentId { get; set; }
+        public int ApartmentId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public string UserName { get; set; }
     }
 }

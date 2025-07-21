@@ -4,6 +4,7 @@ using MyApp.Application.Interfaces;
 using MyApp.Domain;
 using MyApp.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
+using AutoMapper;
 
 namespace MyAppAPI.Controllers
 {
@@ -12,6 +13,7 @@ namespace MyAppAPI.Controllers
     public class ReservationController : ControllerBase
     {
         private readonly IReservationService _reservationService;
+        private readonly IMapper _mapper;
 
         public ReservationController(IReservationService reservationService)
         {
