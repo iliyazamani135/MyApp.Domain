@@ -24,6 +24,11 @@ namespace MyApp.Infrastructure.Repositories
         {
             await _context.Apartments.AddAsync(apartment); // اپارتمان جدید را به جدول دیتابیس اضافه میکند 
         }
+
+        public Task<List<Apartment>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
  // اویت برای این نوشته میشه که ما مثلا میگیم برو یه کاری رو انجام بده من اینجا وایسادم تا بیای که برنامه متوقف نشه 

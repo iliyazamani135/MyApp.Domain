@@ -21,8 +21,9 @@ namespace MyApp.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public ApartmentService(IApartmentRepository @object)
+        public ApartmentService(IApartmentRepository @object, IMapper mapper)
         {
+            _mapper = mapper;
         }
 
         public async Task<ApartmentDto> GetApartmentByIdAsync(Guid id)
