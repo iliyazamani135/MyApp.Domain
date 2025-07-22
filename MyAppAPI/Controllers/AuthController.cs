@@ -9,7 +9,7 @@ using MyApp.Domain.Entities;
 
 namespace MyAppAPI.Controllers
 {
-    [ApiController]
+    //[ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace MyAppAPI.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login(string username, string password)
+        public IActionResult Login([FromQuery]string username, [FromQuery] string password)
         {
             // تست ساده - بجای دیتابیس
             if (username == "admin" && password == "1234")

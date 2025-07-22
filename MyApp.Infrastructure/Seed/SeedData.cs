@@ -11,9 +11,9 @@ namespace MyApp.Infrastructure.Seed
             if (!context.Apartments.Any())
             {
                 context.Apartments.AddRange(
-                    new Apartment { Name = "آپارتمان یک", Address = "تهران، خیابان انقلاب", PricePerNight = 100 },
-                    new Apartment { Name = "آپارتمان دو", Address = "اصفهان، میدان نقش جهان", PricePerNight = 80 },
-                    new Apartment { Name = "آپارتمان سه", Address = "شیراز، حافظیه", PricePerNight = 90 }
+                    new Apartment { Name = "آپارتمان یک", Address = "تهران، خیابان انقلاب", PricePerNight = 100 , Subject = "" , Title = ""},
+                    new Apartment { Name = "آپارتمان دو", Address = "اصفهان، میدان نقش جهان", PricePerNight = 80, Subject = "", Title = "" },
+                    new Apartment { Name = "آپارتمان سه", Address = "شیراز، حافظیه", PricePerNight = 90 , Subject = "", Title = "" }
                 );
 
                 context.SaveChanges();
