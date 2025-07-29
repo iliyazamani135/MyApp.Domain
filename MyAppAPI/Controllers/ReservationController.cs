@@ -75,7 +75,6 @@ namespace MyAppAPI.Controllers
             return NoContent(); // اگر با موفقیت آپدیت شد
         }
 
-
     }
 }
 //برای دریافت رزرو جدید این کدارو نوشتیم نحوه کارش به صورت زیر 

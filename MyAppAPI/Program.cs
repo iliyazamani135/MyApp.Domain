@@ -15,6 +15,7 @@ using System.Text;
 using MyAppAPI.Settings;
 using MyApp.Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +32,7 @@ builder.Host.UseSerilog();
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -103,7 +105,8 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyApp API V1");
         c.RoutePrefix = string.Empty; // Swagger در root باز میشه
     });
-}
+}//System.Reflection.TargetInvocationException: 'Exception has been thrown by the target of an invocation.'
+
 
 app.UseHttpsRedirection();
 

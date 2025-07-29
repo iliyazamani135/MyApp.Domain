@@ -14,11 +14,12 @@ namespace MyApp.Infrastructure.Services
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
-
-        public ApartmentService(AppDbContext context, IMapper mapper)
+        private readonly IApartmentRepository _repository;
+        public ApartmentService(AppDbContext context, IMapper mapper, IApartmentRepository repository)
         {
             _context = context;
             _mapper = mapper;
+            _repository = repository;
         }
 
         public ApartmentService(IApartmentRepository @object, IMapper mapper)

@@ -29,6 +29,7 @@ namespace MyApp.Infrastructure.Repositories
         {
             throw new NotImplementedException();
         }
+
     }
 }
  // اویت برای این نوشته میشه که ما مثلا میگیم برو یه کاری رو انجام بده من اینجا وایسادم تا بیای که برنامه متوقف نشه 

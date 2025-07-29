@@ -9,7 +9,7 @@ using MyApp.Domain.Entities;
 
 namespace MyAppAPI.Controllers
 {
-    //[ApiController]
+    [ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {

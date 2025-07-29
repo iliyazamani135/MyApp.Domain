@@ -12,7 +12,8 @@ namespace MyAppAPI.Controllers
     public class ApartmentController : ControllerBase
     {
         private readonly IApartmentService _apartmentService; //این خط کد برای نگه داری وابستگ ها است و از طریق کانستراکتور ان ر مقار میدیم
-
+       
+        
         public ApartmentController(IApartmentService apartmentService)
         {
             _apartmentService = apartmentService;
@@ -30,6 +31,19 @@ namespace MyAppAPI.Controllers
             await _apartmentService.AddApartmentAsync(apartment);
             return Ok("Added");
         }
+    //    [HttpGet]
+    //    public IActionResult Get()
+    //    {
+    //        return Ok(new[] {
+    //    new {
+    //        Id = 1,
+    //        Title = "آپارتمان تستی",
+    //        Address = "تهران",
+    //        Price = 1000000
+    //    }
+    //});
+    //    }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
