@@ -103,7 +103,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyApp API V1");
-        c.RoutePrefix = string.Empty; // Swagger در root باز میشه
+       // c.RoutePrefix = string.Empty; // Swagger در root باز میشه
     });
 }//System.Reflection.TargetInvocationException: 'Exception has been thrown by the target of an invocation.'
 
@@ -124,5 +124,5 @@ using (var scope = app.Services.CreateScope())
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     SeedData.Initialize(context);
 }
-
+    
 app.Run();

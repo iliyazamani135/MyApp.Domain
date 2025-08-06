@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using MyApp.Application.DTOs;
 using MyApp.Application.Interfaces;
 using MyApp.Domain.Entities;
@@ -18,6 +19,7 @@ namespace MyAppAPI.Controllers
         {
             _apartmentService = apartmentService;
         }
+        [HttpGet]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

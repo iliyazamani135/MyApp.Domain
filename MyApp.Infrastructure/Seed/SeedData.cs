@@ -19,5 +19,5 @@ namespace MyApp.Infrastructure.Seed
                 context.SaveChanges();
             }
         }
-    }
+    }           
 }
