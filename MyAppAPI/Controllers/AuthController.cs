@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using MyApp.Infrastructure;
 using MyApp.Domain.Entities;
+using MyAppAPI.Models;
 
 namespace MyAppAPI.Controllers
 {
