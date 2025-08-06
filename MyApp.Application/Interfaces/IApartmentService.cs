@@ -13,5 +13,6 @@ namespace MyApp.Application.Interfaces
         Task AddApartmentAsync(ApartmentDto apartmentDto);
         Task<bool> UpdateApartmentAsync(Guid id, ApartmentDto apartmentDto);
         Task<bool> DeleteApartmentAsync(Guid id);
+        Task<bool> UpdateApartmentAsync(Guid id, UpdateApartmentDto dto);
     }
 }

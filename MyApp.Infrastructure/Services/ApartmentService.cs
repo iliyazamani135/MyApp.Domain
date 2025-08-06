@@ -42,5 +42,33 @@ namespace MyApp.Infrastructure.Services
             var apartments = await _context.Apartments.ToListAsync();
             return _mapper.Map<List<ApartmentDto>>(apartments);
         }
+        public async Task<bool> UpdateApartmentAsync(Guid id, UpdateApartmentDto dto)
+        {
+            var apartment = await _context.Apartments.FindAsync(id);
+            if (apartment == null)
+                return false;
+
+            apartment.Subject = dto.Subject;
+            apartment.Address = dto.Address;
+            apartment.Price = dto.Price;
+            apartment.Name = dto.Name;
+            apartment.PricePerNight = dto.PricePerNight;
+            apartment.Title = dto.Title;
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        public async Task<bool> DeleteApartmentAsync(Guid id)
+        {
+            var apartment = await _context.Apartments.FindAsync(id);
+            if (apartment == null)
+                return false;
+
+            _context.Apartments.Remove(apartment);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+
     }
 }

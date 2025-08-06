@@ -19,7 +19,7 @@ namespace MyAppAPI.Controllers
         {
             _apartmentService = apartmentService;
         }
-        [HttpGet]
+        
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -33,6 +33,7 @@ namespace MyAppAPI.Controllers
             await _apartmentService.AddApartmentAsync(apartment);
             return Ok("Added");
         }
+
     //    [HttpGet]
     //    public IActionResult Get()
     //    {
@@ -56,10 +57,31 @@ namespace MyAppAPI.Controllers
 
             return Ok(apartment);
         }
-       
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateApartmentDto dto)
+        {
+            var result = await _apartmentService.UpdateApartmentAsync(id, dto);
+            if (!result)
+                return NotFound("آپارتمان پیدا نشد.");
+
+            return Ok("آپارتمان با موفقیت ویرایش شد.");
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var result = await _apartmentService.DeleteApartmentAsync(id);
+            if (!result)
+                return NotFound("آپارتمان پیدا نشد.");
+
+            return Ok("آپارتمان با موفقیت حذف شد.");
+        }
+
+
+
+
     }
 }
 
 // کل این صفحه یه واسطه بین کابر و منطق برنامس درخواست میگیره از کاربر با استفاده از سرویس داده هارو میخونه یا ذخیره میکنه و جواب میده 
-
+                                                                           
 
