@@ -1,4 +1,4 @@
-﻿namespace MyApp.Domain.Entities
+﻿namespace Myapp.Domain.Entities
 {
     public class User
     {

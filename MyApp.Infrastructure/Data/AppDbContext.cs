@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore; // این دوتا خط یوزینگ رو اضافه کردم که به دیتابیس وصل شه و هم انتیتی هارو تشخیص بده 
+using Myapp.Domain.Entities;
 using MyApp.Domain.Entities; 
 
 namespace MyApp.Infrastructure.Persistence
@@ -22,6 +23,7 @@ namespace MyApp.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder); // این متد برای تنظیمات اضافی رو انتیتی هاعه 
         }
         public DbSet<User> Users { get; set; } // انتیتی کاربر 
+        public DbSet<Comment> comments { get; set; }
 
     }
 }

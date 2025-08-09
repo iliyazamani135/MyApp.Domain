@@ -1,4 +1,5 @@
-﻿using MyApp.Domain.Entities;
+﻿using Myapp.Domain.Entities;
+using MyApp.Domain.Entities;
 using MyApp.Infrastructure.Persistence;
 using System.Linq;
 

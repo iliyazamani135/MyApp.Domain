@@ -15,6 +15,7 @@ namespace MyApp.Domain.Entities
         public string Name { get; set; }
         public Decimal PricePerNight { get; set; }
         public ICollection<Reservation> Reservations { get; set; } // ارتباط با رزروها
+        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
         public string Title { get; set; }
     } 
 }
