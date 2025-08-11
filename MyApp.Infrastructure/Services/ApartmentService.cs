@@ -1,40 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using MyApp.Application.DTOs;
-using MyApp.Domain.Entities;
-using AutoMapper;
-using MyApp.Infrastructure.Persistence;
 using MyApp.Application.Interfaces;
+using MyApp.Domain.Entities;
+using MyApp.Infrastructure.Persistence;
 
 namespace MyApp.Infrastructure.Services
 {
-    public class ApartmentService
+    public class ApartmentService : IApartmentService
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
-        private readonly IApartmentRepository _repository;
-        public ApartmentService(AppDbContext context, IMapper mapper, IApartmentRepository repository)
+
+        public ApartmentService(AppDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
-            _repository = repository;
         }
 
-        public ApartmentService(IApartmentRepository @object, IMapper mapper)
+        public async Task AddApartmentAsync(Apartment apartment)
         {
-            _mapper = mapper;
-        }
-
-        public async Task<ApartmentDto> GetApartmentByIdAsync(Guid id)
-        {
-            var apartment = await _context.Apartments.FindAsync(id);
-
-            if (apartment == null)
-                return null;
-
-            return _mapper.Map<ApartmentDto>(apartment);
+            await _context.Apartments.AddAsync(apartment);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<ApartmentDto>> GetAllApartmentsAsync()
@@ -42,6 +29,16 @@ namespace MyApp.Infrastructure.Services
             var apartments = await _context.Apartments.ToListAsync();
             return _mapper.Map<List<ApartmentDto>>(apartments);
         }
+
+        public async Task<ApartmentDto> GetApartmentByIdAsync(Guid id)
+        {
+            var apartment = await _context.Apartments.FindAsync(id);
+            if (apartment == null)
+                return null;
+
+            return _mapper.Map<ApartmentDto>(apartment);
+        }
+
         public async Task<bool> UpdateApartmentAsync(Guid id, UpdateApartmentDto dto)
         {
             var apartment = await _context.Apartments.FindAsync(id);
@@ -58,6 +55,7 @@ namespace MyApp.Infrastructure.Services
             await _context.SaveChangesAsync();
             return true;
         }
+
         public async Task<bool> DeleteApartmentAsync(Guid id)
         {
             var apartment = await _context.Apartments.FindAsync(id);
@@ -68,7 +66,5 @@ namespace MyApp.Infrastructure.Services
             await _context.SaveChangesAsync();
             return true;
         }
-
-
     }
 }

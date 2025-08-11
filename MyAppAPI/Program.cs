@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyApp.Application.Interfaces;
 using MyApp.Application.Services;
-using AutoMapper;
 using Serilog;
 using MyApp.Infrastructure.Persistence;
 using MyApp.Infrastructure.Seed;
@@ -13,10 +12,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using MyAppAPI.Settings;
-using MyApp.Infrastructure.Services;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
+using MyApp.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,11 +55,10 @@ builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 // ثبت Repositoryها
 builder.Services.AddScoped<IApartmentRepository, ApartmentRepository>();
 
+builder.Services.AddScoped<IApartmentService, ApartmentService>();
+
 // ثبت سرویس‌ها با وابستگی‌هایشان
-builder.Services.AddScoped<ApartmentService>(provider =>
-    new ApartmentService(
-        provider.GetRequiredService<IApartmentRepository>(),
-        provider.GetRequiredService<IMapper>()));
+
 
 builder.Services.AddScoped<IReservationService, ReservationService>();
 

@@ -1,4 +1,5 @@
-﻿namespace MyAppAPI.Settings
+﻿
+namespace MyAppAPI.Settings
 {
     public class JwtSettings
     {
@@ -8,3 +9,4 @@
         public int ExpiryMinutes { get; set; } = 60;
     }
 }
+//this is a setting class for create material jwt token 
