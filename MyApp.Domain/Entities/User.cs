@@ -1,11 +1,21 @@
-﻿namespace Myapp.Domain.Entities
+﻿namespace MyApp.Domain.Entities
 {
     public class User
     {
-        public int Id { get; set; }
+        public int Id { get; private set; }
+        public string FullName { get; private set; }
+        public string Email { get; private set; }
 
-        public string Username { get; set; } = string.Empty;
+        public User(string fullName, string email)
+        {
+            FullName = fullName;
+            Email = email;
+        }
 
-        public string Password { get; set; } = string.Empty;
+        public void UpdateProfile(string fullName, string email)
+        {
+            FullName = fullName;
+            Email = email;
+        }
     }
 }

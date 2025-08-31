@@ -12,10 +12,10 @@ namespace MyAppAPI.Controllers
     [Route("api/[controller]")] 
     public class ApartmentController : ControllerBase
     {
-        private readonly IApartmentService _apartmentService; //این خط کد برای نگه داری وابستگ ها است و از طریق کانستراکتور ان ر مقار میدیم
+        private readonly IUserRepository _apartmentService; //این خط کد برای نگه داری وابستگ ها است و از طریق کانستراکتور ان ر مقار میدیم
        
         
-        public ApartmentController(IApartmentService apartmentService)
+        public ApartmentController(IUserRepository apartmentService)
         {
             _apartmentService = apartmentService;
         }

@@ -55,12 +55,12 @@ builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 // ثبت Repositoryها
 builder.Services.AddScoped<IApartmentRepository, ApartmentRepository>();
 
-builder.Services.AddScoped<IApartmentService, ApartmentService>();
+builder.Services.AddScoped<IUserRepository, ApartmentService>();
 
 // ثبت سرویس‌ها با وابستگی‌هایشان
 
 
-builder.Services.AddScoped<IReservationService, ReservationService>();
+builder.Services.AddScoped<IReservationRepository, ReservationService>();
 
 // FluentValidation
 builder.Services.AddFluentValidation(fv =>

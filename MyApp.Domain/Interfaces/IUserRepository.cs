@@ -16,26 +16,14 @@
 //        Task<bool> UpdateApartmentAsync(Guid id, UpdateApartmentDto dto);
 //    }
 //}
-using MyApp.Application.DTOs;
+
 using MyApp.Domain.Entities;
 
-namespace MyApp.Application.Interfaces
+namespace MyApp.Domain.Interfaces
 {
-    public interface IApartmentService
+    public interface IUserRepository
     {
-        // ایجاد آپارتمان با Entity اصلی
-        Task AddApartmentAsync(Apartment apartment);
-
-        // گرفتن همه آپارتمان‌ها به صورت DTO
-        Task<List<ApartmentDto>> GetAllApartmentsAsync();
-
-        // گرفتن یک آپارتمان بر اساس Id به صورت DTO
-        Task<ApartmentDto> GetApartmentByIdAsync(Guid id);
-
-        // بروزرسانی با DTO مخصوص آپدیت
-        Task<bool> UpdateApartmentAsync(Guid id, UpdateApartmentDto dto);
-
-        // حذف آپارتمان
-        Task<bool> DeleteApartmentAsync(Guid id);
+        Task<User> GetByIdAsync(int id);
+        Task AddAsync(User user);
     }
 }

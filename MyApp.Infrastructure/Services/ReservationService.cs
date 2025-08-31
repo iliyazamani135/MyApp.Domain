@@ -6,7 +6,7 @@ using MyApp.Infrastructure.Persistence;
 
 namespace MyApp.Application.Services
 {
-    public class ReservationService : IReservationService
+    public class ReservationService : IReservationRepository
     {
         private readonly AppDbContext _dbContext;
 

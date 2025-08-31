@@ -12,10 +12,10 @@ namespace MyAppAPI.Controllers
     [Route("api/[controller]")]
     public class ReservationController : ControllerBase
     {
-        private readonly IReservationService _reservationService;
+        private readonly IReservationRepository _reservationService;
         private readonly IMapper _mapper;
 
-        public ReservationController(IReservationService reservationService)
+        public ReservationController(IReservationRepository reservationService)
         {
             _reservationService = reservationService;
         }

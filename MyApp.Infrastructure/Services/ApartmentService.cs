@@ -7,7 +7,7 @@ using MyApp.Infrastructure.Persistence;
 
 namespace MyApp.Infrastructure.Services
 {
-    public class ApartmentService : IApartmentService
+    public class ApartmentService : IUserRepository
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
